@@ -1,13 +1,13 @@
-name: 京喜农场-whyour
+name: 京东赚京豆开团-whyour
 
 on:
     workflow_dispatch:
     schedule:
-        - cron: "20 4,7 * * *"
+        - cron: "10 * * * *"
     watch:
         types: [started]
     repository_dispatch:
-        types: jx_nc
+        types: jd_zjd_tuan
 
 jobs:
     build:
@@ -23,7 +23,7 @@ jobs:
             - name: 安装依赖包
               run: |
                   npm install
-            - name: "运行【京喜农场】"
+            - name: "运行【京东赚京豆开团-whyour】"
               run: |
                   node onlyOneExecute.js
               env:
@@ -39,4 +39,4 @@ jobs:
                   DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN || github.event.client_payload.DD_BOT_TOKEN }}
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET || github.event.client_payload.DD_BOT_SECRET }}
                   IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY || github.event.client_payload.IGOT_PUSH_KEY }}
-                  SYNCURL: https://github.com/whyour/hundun/raw/master/quanx/jx_nc.js
+                  SYNCURL: https://raw.githubusercontent.com/whyour/hundun/master/quanx/jd_zjd_tuan.js
